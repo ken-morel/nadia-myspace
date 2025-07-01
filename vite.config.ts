@@ -9,5 +9,8 @@ export default defineConfig({
 			project: './project.inlang',
 			outdir: './src/lib/paraglide'
 		})
-	]
+	],
+	preview: {
+		allowedHosts: ['ins-web-production.up.railway.app', 'ins.brs.cm']
+	}
 });
