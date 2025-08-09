@@ -1,102 +1,104 @@
 <script lang="ts">
-	import { guessPlatform } from '$lib/platform.js';
-	import { writable } from 'svelte/store';
-	const selectedTab = writable(guessPlatform());
-	const appVersion = '0.1.0';
-	const appSize = 58;
-	function apkUrl(): string {
-		return '#';
-	}
-	const platformOptions: { name: string }[] = [
-		{
-			name: 'Android'
-		},
-		{ name: 'Linux' }
-	];
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 </script>
 
-<div class="w3-container w3-padding-64 hero">
-	<h1><span>Bridging gaps,</span> <span>Building futures</span></h1>
-</div>
-<div id="header" class="w3-bar">
-	<a class="w3-button w3-right" href="#download">Get the app</a>
-</div>
-<div id="download" class="w3-container w3-padding">
-	<div class="download-card dload-tabs w3-card w3-auto w3-center w3-container">
+<div class="hero w3-padding-64 w3-center">
+	<div class="frontline">
+		<span class="logo">
+			<span class="border">
+				<span>Nadia</span>
+				space
+			</span>
+		</span>
 		<div>
-			{#each platformOptions as platformOption}
-				<button
-					class="w3-button w3-inline {$selectedTab == platformOption.name.toLowerCase()
-						? 'selected'
-						: 'unselected'}"
-					on:click={() => selectedTab.set(platformOption.name.toLowerCase())}
-				>
-					{platformOption.name}
-				</button>
-			{/each}
-		</div>
-		<div class="w3-container w3-border-top">
-			{#if $selectedTab == 'android'}
-				<div class="w3-container w3-padding">
-					<a class="w3-button android-download w3-large" href={apkUrl()}>Download the apk</a>
-					<p class="w3-tiny">Version {appVersion}, {appSize}MB</p>
-				</div>
-			{/if}
+			<span class="bar"></span>
+			<p class="quote">Revolutionizing traffic, evolutionizing transport.</p>
 		</div>
 	</div>
 </div>
+<div class="sep"></div>
+<div class="survey w3-padding-64">
+	<div>
+		<h3>Had a bad experience?</h3>
+		<p>
+			A memorable mark on your shoes, or a day your feet will never forget? We will be happy to
+			hear from you.
+		</p>
+		<a class="w3-btn w3-round-large" href="/survey">Tell us more</a>
+	</div>
+</div>
+{#if data.submissions.length > 0}
+	<div class="w3-padding-64">
+		<h2 class="w3-center">User Experiences</h2>
+		<div class="w3-row-padding">
+			{#each data.submissions as submission, i (i)}
+				<div class="w3-col l4 m6 w3-margin-bottom">
+					<blockquote class="w3-panel w3-leftbar w3-light-grey">
+						<p class="w3-large">
+							<i>"{submission}"</i>
+						</p>
+					</blockquote>
+				</div>
+			{/each}
+		</div>
+	</div>
+{/if}
 
 <style lang="sass">
-@use 'sass:color';
+@use '../theme'
+@use 'sass:color'
 
-*
-  color: white
+$border-size: 10px
 
-$hh1: #909EAE
-$hh2: #5C8DC5
-$hh3: #AD9E90
-$hh4: #736F60
-
-$background: color.adjust($hh1, $lightness: -51%)
-$focus: color.adjust($hh2, $saturation: -30%, $lightness: -20%)
-
-a.android-download
-  background: $focus
-  border-radius: 25px
-
-
-.hero
-  background: $background
-  background:
-    attachment: fixed
-    repeat: no-repeat
-    position: center
+span.logo
+  border-radius: 30px
+  display: inline-block
+  background: theme.$nadient
+  padding: $border-size
+  span.border
+    background-color: color.adjust(rgba(theme.$nadia2, 0.5), $lightness: -70%)
+    border-radius: 24px
+    display: inline-block
+    padding: 10px 15px !important
+    font-size: 4em
+    span
+      border-radius: 15px
+      background: theme.$nadient
+      font-size: 1.2em
+      padding: 5px 25px
+div.hero
+  border: none
+  div.frontline
+    div
+      p.quote
+        margin: auto
+        margin-top: 30px
+        max-width: 500px
+        text-align: center
+        font-size: 2em
+        opacity: 0.4
+div.sep
+  height: 20px
   margin: 0
-  padding: 40px
-  h1
-    margin: 50px
-    text-align: center
-    font-size: xxx-large
-    font: "Ubuntu mono"
-    font-weight: bold
-    span:first-child
-      color: #dd6666
-    span:last-child
-      color: #aa66dd
-#header
-  position: sticky
-  background: color.adjust($hh4, $alpha: 0.7, $blue: 1%, $red: 1%)
-  backdrop-filter: blur(5px)
-#download
-  background: color.adjust($background, $green: 2%)
-  .download-card
-    background: $background
-    padding:
-      left: 0
-      right: 0
-    max-width: 500px
-    & > div:first-child
-      background: color.adjust($background, $lightness: 5%)
-      & > button.selected
-        background: $hh3 !important
+  height: 4px
+  background: theme.$nadient
+div.survey
+  text-align: center
+  a
+    border: 1px solid theme.$nadia1
+    color: theme.$nadia1
+    &:hover
+      background: theme.$nadia1
+      color: white
+
+blockquote
+  border-color: theme.$nadia1 !important
+  margin: 1.5em 10px
+  padding: 1em 20px
+  border-left-width: 5px !important
+  p
+    margin: 0
+
 </style>
