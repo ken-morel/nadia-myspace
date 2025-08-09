@@ -1,14 +1,11 @@
-<div class="w3-padding-64">
-	<a href="/" class="w3-button w3-display-topleft">Home</a>
-	<div class="container">
-		<h1>Survey</h1>
-		<p>We are sorry to hear you had a bad experience. Please, tell us what happened.</p>
+<div class="w3-container">
+	<div class="form-container">
+		<h1>Share Your Experience</h1>
+		<p>Your feedback helps us improve. Please describe your experience below.</p>
 		<form method="POST">
-			<label for="experience">Your experience:</label>
-			<div class="textarea-wrapper">
-				<textarea class="w3-input" name="experience" id="experience"></textarea>
-			</div>
-			<button class="w3-btn w3-section w3-right">Submit</button>
+			<label for="experience">Your story:</label>
+			<textarea name="experience" id="experience" rows="8"></textarea>
+			<button type="submit" class="w3-btn w3-round-large">Submit Feedback</button>
 		</form>
 	</div>
 </div>
@@ -16,41 +13,48 @@
 <style lang="sass">
 @use '../../theme'
 
-div.container
-  max-width: 600px
-  margin: auto
-  padding: 2em
-  border-radius: 15px
-  box-shadow: 0 0 20px rgba(0,0,0,0.1)
+.form-container
+  max-width: 700px
+  margin: 0 auto
+  background: white
+  padding: theme.$spacing-16
+  border-radius: theme.$border-radius
+  box-shadow: theme.$shadow-lg
+  text-align: center
 
-.textarea-wrapper
-  padding: 3px
-  background: theme.$nadient
-  border-radius: 8px
-  margin-bottom: 1em
+h1
+  font-size: theme.$font-size-3xl
+  font-weight: 700
+  margin-bottom: theme.$spacing-4
 
-textarea
-  height: 200px
-  resize: vertical
-  border-radius: 6px
-  border: none
-  &:focus
-    outline: none
+p
+  color: theme.$grey
+  margin-bottom: theme.$spacing-8
 
 label
   display: block
-  margin-bottom: 0.5em
-  font-weight: bold
-  color: #333
+  text-align: left
+  font-weight: 500
+  margin-bottom: theme.$spacing-2
+
+textarea
+  width: 100%
+  padding: theme.$spacing-4
+  border-radius: theme.$border-radius
+  border: theme.$border-width solid theme.$border-color
+  transition: border-color 0.2s, box-shadow 0.2s
+  &:focus
+    outline: none
+    border-color: theme.$primary
+    box-shadow: 0 0 0 3px rgba(theme.$primary, 0.2)
 
 button
-  border-radius: 8px
-  background: theme.$nadient
+  width: 100%
+  margin-top: theme.$spacing-8
+  padding: 0.8em 1.5em
+  background: theme.$gradient
   color: white
-  border: none
-  padding: 10px 20px
-  cursor: pointer
-  transition: opacity 0.3s
+  font-weight: 500
   &:hover
     opacity: 0.9
 
