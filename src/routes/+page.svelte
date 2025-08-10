@@ -4,7 +4,7 @@
 </script>
 
 <section class="hero w3-container w3-center">
-	<h1>Revolutionizing Traffic, Evolutionizing Transport.</h1>
+	<h1>Book a Bike.</h1>
 	<p>Share your ride experiences and help us build a better transport ecosystem.</p>
 	<a href="/survey" class="w3-btn w3-round-large">Share Your Story</a>
 </section>
@@ -17,13 +17,13 @@
 				<!-- Duplicate the content for a seamless loop -->
 				{#each data.submissions as submission, id (id)}
 					<div class="card">
-						<p>"{submission.content}"</p>
+						<p>{submission.content}</p>
 						<span class="w3-opacity w3-right">{submission.username}</span>
 					</div>
 				{/each}
 				{#each data.submissions as submission, id (id + 'dup')}
 					<div class="card">
-						<p>"{submission.content}"</p>
+						<p>{submission.content}</p>
 						<span class="w3-opacity w3-right">{submission.username}</span>
 					</div>
 				{/each}
@@ -70,6 +70,7 @@
     font-weight: 700
     margin-bottom: theme.$spacing-8
   .scroller-container
+    padding: 30px
     overflow: hidden
     -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent)
     mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent)
@@ -80,22 +81,35 @@
     animation: scroll 40s linear infinite
     &:hover
       animation-play-state: paused
+      .card
+        opacity: 0.3
+        filter: blur(1px)
 
-  .card
-    width: 400px
-    margin: 0 theme.$spacing-4
-    padding: theme.$spacing-8
-    border-radius: theme.$border-radius
-    box-shadow: theme.$shadow-md
-    background: white
-    transition: transform 0.4s ease-out, box-shadow 0.3s ease
-    p
-      font-style: italic
-      color: theme.$grey
-      text-overflow: ellipsis
-      max-height: 320px
-    &:hover
-      transform: scale(1.05)
-      box-shadow: theme.$shadow-lg
+    .card
+      width: 400px
+      margin: 0 theme.$spacing-4
+      padding: theme.$spacing-8
+      border-radius: theme.$border-radius
+      box-shadow: theme.$shadow-md
+      background: white
+      transition: transform 0.4s ease-out, box-shadow 0.3s ease, opacity 3s ease-in, filter 1s ease-in
+      p
+        font-style: italic
+        color: theme.$grey
+        text-overflow: ellipsis
+        max-height: 320px
+        &::before,
+        &::after
+          content: '"'
+      &:hover
+        opacity: 1
+        transform: scale(1.05)
+        box-shadow: theme.$shadow-lg
+        filter: none
+        p
+          font-style: normal
+          &::before,
+          &::after
+            content: ''
 
 </style>

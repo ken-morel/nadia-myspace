@@ -4,8 +4,11 @@
 		<p>Your feedback helps us improve. Please describe your experience below.</p>
 		<form method="POST">
 			<label for="content">Your story:</label>
-			<textarea name="content" id="content" rows="8"></textarea>
-			<button type="submit" class="w3-btn w3-round-large">Submit Feedback</button>
+			<textarea name="content" id="content" rows="8" class="w3-textarea"></textarea>
+			<hr />
+			<label for="username">Share your name(optional)</label>
+			<input type="text" id="username" name="username" class="w3-input" />
+			<button type="submit" class="w3-btn w3-round-large">Share</button>
 		</form>
 	</div>
 </div>
