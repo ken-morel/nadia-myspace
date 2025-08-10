@@ -33,7 +33,7 @@
 
 .icon
   display: inline-block
-  padding: theme.$spacing-4
+  padding: 15px 18px
   background: theme.$gradient
   border-radius: 70px
   margin-bottom: theme.$spacing-8

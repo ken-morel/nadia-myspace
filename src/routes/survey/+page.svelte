@@ -3,8 +3,8 @@
 		<h1>Share Your Experience</h1>
 		<p>Your feedback helps us improve. Please describe your experience below.</p>
 		<form method="POST">
-			<label for="experience">Your story:</label>
-			<textarea name="experience" id="experience" rows="8"></textarea>
+			<label for="content">Your story:</label>
+			<textarea name="content" id="content" rows="8"></textarea>
 			<button type="submit" class="w3-btn w3-round-large">Submit Feedback</button>
 		</form>
 	</div>

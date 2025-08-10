@@ -1,9 +1,7 @@
-import type { PageServerLoad } from '$types';
-import { submissions } from '$lib/submissions.store';
-import { get } from 'svelte/store';
+import { getSubmissions } from '$lib/submissions.js';
 
-export const load: PageServerLoad = async () => {
+export async function load() {
 	return {
-		submissions: get(submissions)
+		submissions: await getSubmissions()
 	};
-};
+}

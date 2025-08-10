@@ -1,5 +1,6 @@
 <script lang="ts">
-	export let data: { submissions: string[] };
+	import type { Submission } from '$lib/submissions.js';
+	export let data: { submissions: Submission[] };
 </script>
 
 <section class="hero w3-container w3-center">
@@ -8,18 +9,13 @@
 	<a href="/survey" class="w3-btn w3-round-large">Share Your Story</a>
 </section>
 
-{#if data.submissions.length > 0}
-	<section class="experiences w3-container">
-		<h2 class="w3-center">Recent Experiences</h2>
-		<div class="grid">
-			{#each data.submissions as submission, i (i)}
-				<div class="card">
-					<p>"{submission}"</p>
-				</div>
-			{/each}
+<section class="experiences">
+	{#each data.submissions as submission, i (i)}
+		<div class="experience">
+			<p>{submission.content}</p>
 		</div>
-	</section>
-{/if}
+	{/each}
+</section>
 
 <style lang="sass">
 @use '../theme'
@@ -45,23 +41,23 @@
     &:hover
       opacity: 0.9
 
-.experiences
-  padding-bottom: theme.$spacing-16
-  h2
-    font-size: theme.$font-size-3xl
-    font-weight: 700
-    margin-bottom: theme.$spacing-8
-  .grid
-    display: grid
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
-    gap: theme.$spacing-8
-  .card
-    background: white
-    padding: theme.$spacing-8
-    border-radius: theme.$border-radius
-    box-shadow: theme.$shadow-md
-    p
-      font-style: italic
-      color: theme.$grey
-
+section.experiences
+  height: 300px
+  $border: 2px theme.$grey solid
+  display: inline-block
+  overflow-x: scroll
+  border:
+    top: $border
+    bottom: $border
+  padding:
+    top: 20px
+    bottom: 20px
+  div.experience
+    height: 100%
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    align-content: stretch
+    justify-content: space-evenly
+    align-items: center
 </style>
