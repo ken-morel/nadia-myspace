@@ -15,13 +15,13 @@
 		<div class="scroller-container">
 			<div class="scroller">
 				<!-- Duplicate the content for a seamless loop -->
-				{#each data.submissions as submission (submission.id)}
+				{#each data.submissions as submission, id (id)}
 					<div class="card">
 						<p>"{submission.content}"</p>
 						<span class="w3-opacity w3-right">{submission.username}</span>
 					</div>
 				{/each}
-				{#each data.submissions as submission (submission.id + 'dup')}
+				{#each data.submissions as submission, id (id + 'dup')}
 					<div class="card">
 						<p>"{submission.content}"</p>
 						<span class="w3-opacity w3-right">{submission.username}</span>
@@ -88,10 +88,14 @@
     border-radius: theme.$border-radius
     box-shadow: theme.$shadow-md
     background: white
+    transition: transform 0.4s ease-out, box-shadow 0.3s ease
     p
       font-style: italic
       color: theme.$grey
       text-overflow: ellipsis
       max-height: 320px
+    &:hover
+      transform: scale(1.05)
+      box-shadow: theme.$shadow-lg
 
 </style>
