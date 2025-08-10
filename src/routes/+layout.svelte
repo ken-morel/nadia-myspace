@@ -17,7 +17,9 @@
 
 <footer>
 	<div class="w3-container">
-		<p>&copy; 2025 Nadia Inc. All rights reserved.</p>
+		<p>
+			&copy; 2025 Nadia Inc. <a href="mailto:engon@rbs.cm">engon@rbs.cm</a>. All rights reserved.
+		</p>
 	</div>
 </footer>
 
