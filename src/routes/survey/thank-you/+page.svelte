@@ -35,7 +35,7 @@
   display: inline-block
   padding: theme.$spacing-4
   background: theme.$gradient
-  border-radius: 50%
+  border-radius: 70px
   margin-bottom: theme.$spacing-8
   svg
     stroke: white

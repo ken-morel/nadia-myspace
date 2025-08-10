@@ -7,7 +7,7 @@
 		<a href="/" class="logo">
 			<span>Nadia</span>space
 		</a>
-		<a href="/survey" class="w3-btn w3-round-large">Submit Experience</a>
+		<a href="/survey" class="w3-btn w3-round-large">Share Experience</a>
 	</nav>
 </header>
 
@@ -17,7 +17,7 @@
 
 <footer>
 	<div class="w3-container">
-		<p>&copy; 2025 Nadia Space. All rights reserved.</p>
+		<p>&copy; 2025 Nadia Inc. All rights reserved.</p>
 	</div>
 </footer>
 

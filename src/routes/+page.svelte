@@ -3,7 +3,7 @@
 </script>
 
 <section class="hero w3-container w3-center">
-	<h1>Revolutionizing Traffic, Evolutionizing Transport.</h1>
+	<h1>Book a bike.</h1>
 	<p>Share your ride experiences and help us build a better transport ecosystem.</p>
 	<a href="/survey" class="w3-btn w3-round-large">Share Your Story</a>
 </section>

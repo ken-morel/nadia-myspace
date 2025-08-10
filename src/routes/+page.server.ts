@@ -1,4 +1,4 @@
-import type { PageServerLoad } from './$types';
+import type { PageServerLoad } from '$types';
 import { submissions } from '$lib/submissions.store';
 import { get } from 'svelte/store';
 
